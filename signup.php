@@ -101,9 +101,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/login.css">
     <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-        .body {
+        body{ 
+            font: 14px sans-serif; 
             background-image: linear-gradient(90deg, white, gray);
         }
 
