@@ -103,14 +103,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
+        .body {
+            background-image: linear-gradient(90deg, white, gray);
+        }
+
+        .login-section {
+            /* box-shadow: 10px 10px 5px gray; */
+            /* margin: 10px; */
+            margin-top: 160px;
+            margin-left: 10%;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <section class="login-section">
+        <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8 m-auto">
                 <div class="form-group col-8">
-                    <h2>Sign Up</h2>
+                    <h2 class="h1-position">Sign Up</h2>
                     <p>Please fill this form to create an account.</p>
                 </div>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -138,6 +150,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </form>
             </div>
         </div>
-    </div>    
+    </div>
+    </section>    
 </body>
 </html>
