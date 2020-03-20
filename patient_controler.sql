@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2020 at 07:58 PM
+-- Generation Time: Mar 20, 2020 at 02:00 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -21,6 +21,37 @@ SET time_zone = "+00:00";
 --
 -- Database: `patient_controler`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patient_info`
+--
+
+CREATE TABLE `patient_info` (
+  `id` int(11) NOT NULL,
+  `patient_ip` varchar(15) DEFAULT NULL,
+  `f_name` varchar(40) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `bed_no` varchar(40) DEFAULT NULL,
+  `pr_address` varchar(30) DEFAULT NULL,
+  `pe_address` varchar(40) DEFAULT NULL,
+  `user_image` varchar(40) DEFAULT NULL,
+  `first_medicine_name` varchar(40) DEFAULT NULL,
+  `first_medicine_time` varchar(40) DEFAULT NULL,
+  `second_medicine_name` varchar(40) DEFAULT NULL,
+  `second_medicine_time` varchar(40) DEFAULT NULL,
+  `third_medicine_name` varchar(40) DEFAULT NULL,
+  `third_medicine_time` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `patient_info`
+--
+
+INSERT INTO `patient_info` (`id`, `patient_ip`, `f_name`, `email`, `phone`, `bed_no`, `pr_address`, `pe_address`, `user_image`, `first_medicine_name`, `first_medicine_time`, `second_medicine_name`, `second_medicine_time`, `third_medicine_name`, `third_medicine_time`) VALUES
+(1, '192.168.0.100', 'Shahed', 'shahedtalukder51@gmail.com', '1762178238', '01', 'Adalot Para, Tangail', 'Khagan Bazar, Ashulia, Dhaka', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -49,6 +80,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
 --
 
 --
+-- Indexes for table `patient_info`
+--
+ALTER TABLE `patient_info`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -58,6 +95,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `patient_info`
+--
+ALTER TABLE `patient_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`

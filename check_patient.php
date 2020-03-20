@@ -60,9 +60,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     <li class="nav-item">
                         <a class="nav-link" href="#">Team</a>
                     </li>
-                    <div class="nav-item">
-                        <div class="nav-link">About</div>
-                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Patient
@@ -70,7 +70,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="all_patients_information.php">All Patients</a>
                             <a class="dropdown-item" href="add_patient.php">Add New Patient</a>
-                            <a class="dropdown-item" href="check_patient.php">Check Patient</a>
+                            <!-- <a class="dropdown-item" href="check_patient.php">Check Patient</a> -->
                             <a class="dropdown-item" href="add_medicine.php">Add Medicine</a>
                         </div>
                     </li>
@@ -86,7 +86,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <section class="container">
         <div class="col-12 col-lg-12 m-auto">
             <div class="card">
-                <img class="card-img-top" src="img/shahed.jpg" alt="">
                 <div class="card-body col-10 col-lg-10 m-auto">
                     <h3 class="card-title">Md Shahed Talukder</h3>
                 </div>
