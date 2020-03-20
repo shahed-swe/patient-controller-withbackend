@@ -128,14 +128,17 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <form class="form-sec" id="validateForm" action="" method="POST">
                     <div class="form-row">
                         <div class="form-group col-6">
-                            <input type="text" class="form-control" id="patient_id" name="patient_id" placeholder="Enter patients Id">
+                        <!-- name: patient_id -->
+                            <input type="text" class="form-control" id="patient_ip" name="patient_ip" placeholder="Enter patients Ip">
                         </div>
                         <div class="form-group col-6">
+                        <!-- name: f_name -->
                             <input type="text" class="form-control" id="f_name" name="f_name" placeholder="Enter patients Name">
                         </div>
                         <div class="form-group col-12">
                             <div class="input-group-prepend">
                                 <div class="input-group-text text-box-size">@</div>
+                                <!-- name: email -->
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter patients Email Address">
                             </div>
                         </div>
@@ -144,27 +147,31 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                 <div class="input-group-text">
                                     +880
                                 </div>
+                                <!-- name: phone -->
                                 <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number">
                             </div>
                         </div>
                         <div class="form-group col-6">
+                        <!-- name: bed_no -->
                             <input type="text" class="form-control" id="bed_no" name="bed_no" placeholder="Enter Bed Number">
                         </div>
                         <div class="form-group col-6">
+                        <!-- name: pr_address -->
                             <input type="text" class="form-control" id="pr_address" name="pr_address" placeholder="Enter Present Address">
                         </div>
                         <div class="form-group col-6">
+                        <!-- name: pe_address -->
                             <input type="text" class="form-control" id="pe_address" name="pe_address" placeholder="Enter Permanent Address">
                         </div>
                         <div class="form-group col-6">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Upload</div>
                                 <div class="custom-file">
+                                <!-- name: user_image -->
                                     <input type="file" class="custom-file-input" id="user_image" name="user_image">
                                     <label class="custom-file-label" for="">Choose File</label>
                                 </div>
                             </div>
-
                         </div>
                         <button class="btn btn-outline-info shadow-none btn-block" name="submit" id="submit">Submit</button>
                     </div>

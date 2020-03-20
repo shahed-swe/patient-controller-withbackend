@@ -115,7 +115,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <div class="container">
                     <div class="row">
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -124,7 +124,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -133,7 +133,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -142,7 +142,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -151,7 +151,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -160,7 +160,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -169,7 +169,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -178,7 +178,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -187,7 +187,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -196,7 +196,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -205,7 +205,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -214,7 +214,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -223,7 +223,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -232,7 +232,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -241,7 +241,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -250,7 +250,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -259,7 +259,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -268,7 +268,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -277,7 +277,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -286,7 +286,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>
@@ -295,7 +295,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
                         </div>
                         <div class="card-body col-4">
-                            <h5 class="card=title">Patient-01</h5>
+                            <h5 class="card=title">192.168.0.101</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 Md Shahed Talukder
                             </h6>

@@ -132,30 +132,37 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <form class="form-sec" id="validateForm" action="add_medicine.html" method="POST">
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <input type="text" class="form-control" id="patient_id" name="patient_id" placeholder="Enter patients Id">
+                        <!-- name: patient_ip -->
+                            <input type="text" class="form-control" id="patient_ip" name="patient_ip" placeholder="Enter patients Ip">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-6">
+                        <!-- name: first_medicine_name -->
                             <input type="text" class="form-control" id="first_medicine_name" name="first_medicine_name" placeholder="Enter First Medicine Name">
                         </div>
                         <div class="form-group col-6">
+                        <!-- name:first_medicine_time -->
                             <input type="time" id="first_medicine_time" name="first_medicine_time" class="form-control">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-6">
+                        <!-- name: second_medicine_name -->
                             <input type="text" class="form-control" id="second_medicine_name" name="second_medicine_name" placeholder="Enter Second Medicine Name">
                         </div>
                         <div class="form-group col-6">
+                        <!-- name: second_medicine_time -->
                             <input type="time" id="second_medicine_time" name="second_medicine_time" class="form-control">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-6">
+                        <!-- name: third_medicine_name -->
                             <input type="text" class="form-control" id="third_medicine_name" name="third_medicine_name" placeholder="Enter Third Medicine Name">
                         </div>
                         <div class="form-group col-6">
+                        <!-- name: third_medicine_time -->
                             <input type="time" id="third_medicine_time" name="third_medicine_time" class="form-control">
                         </div>
                     </div>
