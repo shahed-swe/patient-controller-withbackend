@@ -9,8 +9,8 @@ $(function() {
     $("#user_image").attr("disabled", true);
 
 
-    $("#patient_id").on('input', function() {
-        var input = $("#patient_id").val();
+    $("#patient_ip").on('input', function() {
+        var input = $("#patient_ip").val();
         if (input) {
             $("#f_name").attr("disabled", false);
         } else {
@@ -88,18 +88,8 @@ $(function() {
     $("#pe_address").on('input', function() {
         var input = $("#pe_address").val();
         if (input) {
-            $("#user_image").attr("disabled", false);
-        } else {
-            $("#user_image").attr("disabled", true);
-            $("#submit").attr("disabled", true);
-        }
-    });
-    $("#user_image").on('input', function() {
-        var input = $("#user_image").val();
-        if (input) {
             $("#submit").attr("disabled", false);
         } else {
-
             $("#submit").attr("disabled", true);
         }
     });
