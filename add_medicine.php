@@ -9,6 +9,51 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 ?>
 
+
+<?php 
+
+    //including config file
+    require_once "config.php";
+
+    // define variables and initialize with empty values
+    $patient_ip = "";
+    $patient_ip_err = "";
+    // processing from data when form is submitted
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(empty(trim($_POST["patient_ip"]))){
+            $patient_ip_err = "Please enter an ip address";
+        }
+        else{
+            // prepare a select statement
+            $sql = "SELECT id FROM patient_info WHERE patient_ip = ?";
+
+            if($stmt = mysqli_prepare($link, $sql)){
+                mysqli_stmt_bind_param($stmt, "s" , $param_patient_ip);
+
+                // set parameters
+
+                $param_patient_ip = trim($_POST["patient_ip"]);
+
+                // attempt to execute the prepare statement
+
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,44 +132,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 
 <body>
-    <!-- navbar section -->
-    <section class="nav-section">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <a class="navbar-brand" href="home.php"><span class="text-success">IoT</span> Expert</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Patient
-        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="all_patients_information.php">All Patients</a>
-                            <a class="dropdown-item" href="add_patient.php">Add New Patient</a>
-                            <!-- <a class="dropdown-item" href="check_patient.php">Check Patient</a> -->
-                            <a class="dropdown-item" href="add_medicine.php">Add Medicine</a>
-                        </div>
-                    </li>
-                    <div class="nav-item">
-                        <a href="logout.php" class="nav-link">Logout</a>
-                    </div>
-                </ul>
-            </div>
-        </nav>
-    </section>
-    <!-- patient adding section -->
+    <?php
+        include 'navbar.php';
+    ?>
+        <!-- patient adding section -->
     <section class="form-section" id="form-section">
         <div class="col-12 col-lg-12 m-auto">
             <div class="card">
