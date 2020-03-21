@@ -200,7 +200,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="col-12 col-lg-12 m-auto">
             <div class="card">
                 <img class="card-img-top" src="img/doctor.png" alt="">
-                <form class="form-sec" id="validateForm" action="" method="POST">
+                <form class="form-sec" id="validateForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                     <div class="form-row">
                         <div class="form-group col-6">
                         <!-- name: patient_id -->

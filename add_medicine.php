@@ -16,7 +16,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     require_once "config.php";
 
     // define variables and initialize with empty values
-    $patient_ip = "";
+    $patient_ip = $first_medicine_name = $first_medicine_time = $second_medicine_name = $second_medicine_time = $third_medicine_name = $third_medicine_time = "";
     $patient_ip_err = "";
     // processing from data when form is submitted
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -35,19 +35,63 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 $param_patient_ip = trim($_POST["patient_ip"]);
 
                 // attempt to execute the prepare statement
+                
+                if(mysqli_stmt_execute($stmt)){
+                    mysqli_stmt_store_result($stmt);
 
+                    if(mysqli_stmt_num_rows($stmt) == 1){
+                        $patient_ip = trim($_POST["patient_ip"]);
+
+                    }
+                    else{
+                        $patient_ip_err = "This ip is not used yet";
+                    }
+                }else{
+                    echo "Oops! Something went wrong. Please try again later";
+                }
+                mysqli_stmt_close($stmt);
             }
         }
+
+        $first_medicine_name = trim($_POST["first_medicine_name"]);
+        $first_medicine_time = trim($_POST["first_medicine_time"]);
+        $second_medicine_name = trim($_POST["second_medicine_name"]);
+        $second_medicine_time = trim($_POST["second_medicine_time"]);
+        $third_medicine_name = trim($_POST["third_medicine_name"]);
+        $third_medicine_time = trim($_POST["second_medicine_time"]);
+
+        if(empty($patient_ip_err)){
+            $sql = "UPDATE patient_info SET first_medicine_name = ?, first_medicine_time = ?, second_medicine_name = ?, second_medicine_time = ?, third_medicine_name = ?, third_medicine_time = ? WHERE patient_ip = ?";
+
+
+            if($stmt  = mysqli_prepare($link, $sql)){
+                // bind variables to the prepared statement as parameters
+                mysqli_stmt_bind_param($stmt, "sssssss", $param_first_medicine_name,$param_first_medicine_time,$param_second_medicine_name,$param_second_medicine_time,$param_third_medicine_name, $param_third_medicine_time,$param_patient_ip);
+
+
+                // sec parameters
+                $param_first_medicine_name = $first_medicine_name;
+                $param_first_medicine_time = $first_medicine_time;
+                $param_second_medicine_name = $second_medicine_name;
+                $param_second_medicine_time = $second_medicine_time;
+                $param_third_medicine_name = $third_medicine_name;
+                $param_third_medicine_time = $third_medicine_time;
+
+                // attenot ti execute the prepared statement
+
+                if(mysqli_stmt_execute($stmt)){
+                    header("location: add_medicine.php");
+                }else{
+                    echo "Something went wrong! Please try again later.";
+                }
+
+                // close statement
+                mysqli_stmt_close($stmt);
+            }
+        }
+        mysqli_close($link);
+
     }
-
-
-
-
-
-
-
-
-
 
 
 ?>
@@ -65,7 +109,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <link rel="stylesheet" href="date-time/jquery.datetimepicker.css">
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.min.js"></script>
-    <script src="date-time/jquery.datetimepicker.js"></script>
+    <!-- <script src="date-time/jquery.datetimepicker.js"></script> -->
     <title>Document</title>
     <style>
         body {
@@ -141,11 +185,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="col-12 col-lg-12 m-auto">
             <div class="card">
                 <img class="card-img-top" src="img/doctor.png" alt="">
-                <form class="form-sec" id="validateForm" action="add_medicine.html" method="POST">
+                <form class="form-sec" id="validateForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                     <div class="form-row">
                         <div class="form-group col-12">
                         <!-- name: patient_ip -->
                             <input type="text" class="form-control" id="patient_ip" name="patient_ip" placeholder="Enter patients Ip">
+                            <span class="help-block"><?php echo $patient_ip_err; ?></span>
                         </div>
                     </div>
                     <div class="form-row">
@@ -184,7 +229,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
     </section>
     <!-- scripts -->
-    <script src="js/setmedicine.js"></script>
+    <!-- <script src="js/setmedicine.js"></script> -->
+    <script src="js/addmedicine.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
 

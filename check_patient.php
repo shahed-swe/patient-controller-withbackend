@@ -9,6 +9,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 ?>
 
+
+<?php
+
+    $id = $_GET['id'];
+    require_once "config.php";
+    $sql = "SELECT * FROM patient_info WHERE id=$id";
+    $result = mysqli_query($link, $sql);
+
+    $std = mysqli_fetch_assoc($result);
+    // var_dump($std);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,6 +52,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             -webkit-animation: movingTopToBottom 3s;
             position: relative;
         }
+        .container-body{
+            padding-top: 20px !important;
+        }
     </style>
 </head>
 
@@ -47,47 +62,50 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <?php
         include 'navbar.php';
     ?>
-    <!-- profile -->
     <!-- patient adding section -->
     <section class="container">
         <div class="col-12 col-lg-12 m-auto">
-            <div class="card">
+            <div class="card container-body">
+            
                 <div class="card-body col-10 col-lg-10 m-auto">
-                    <h3 class="card-title">Md Shahed Talukder</h3>
+                    <h3 class="card-title"><?php echo $std['f_name']; ?></h3>
                 </div>
                 <div class="card-body col-10 col-lg-10 m-auto">
                     <p class="card-title float-right">
-                        <label for="">Phone:</label> +8801762178238
+                        <label for="">Phone:</label> <?php echo $std['phone']; ?>
                     </p>
                     <p class="card-title">
-                        <label for="">Email:</label> shahedtalukder51@gmail.com
+                        <label for="">Email:</label> <?php echo $std['email']; ?>
                     </p>
                     <p class="card-title float-right">
-                        <label for="">Present Address:</label> shahedtalukder51@gmail.com
+                        <label for="">Present Address:</label> <?php echo $std['pr_address']; ?>
                     </p>
                     <p class="card-title">
-                        <label for="">Permanent Address:</label> shahedtalukder51@gmail.com
+                        <label for="">Permanent Address:</label> <?php echo $std['pe_address']; ?>
                     </p>
                 </div>
                 <div class="card-body col-10 col-lg-10 m-auto">
                     <p class="card-title float-right">
-                        <label for="">Time:</label> 6:34:AM
+                        <label for="">Time:</label> <?php echo $std['first_medicine_time']; ?>
                     </p>
                     <p class="card-title">
-                        <label for="">Medicine Name:</label> Napa Extra
+                        <label for="">Medicine Name:</label> <?php echo $std['first_medicine_name']; ?>
                     </p>
                     <p class="card-title float-right">
-                        <label for="">Time:</label> 12:34:PM
+                        <label for="">Time:</label> <?php echo $std['second_medicine_time']; ?>
                     </p>
                     <p class="card-title">
-                        <label for="">Medicine Name:</label> Napa Extra
+                        <label for="">Medicine Name:</label> <?php echo $std['second_medicine_name']; ?>
                     </p>
                     <p class="card-title float-right">
-                        <label for="">Time:</label> 10:34:PM
+                        <label for="">Time:</label> <?php echo $std['third_medicine_time']; ?>
                     </p>
                     <p class="card-title">
-                        <label for="">Medicine Name:</label> Napa Extra
+                        <label for="">Medicine Name:</label> <?php echo $std['third_medicine_name']; ?>
                     </p>
+                </div>
+                <div class="col-8 col-lg-10 m-auto">
+                    <a class="btn btn-info shadow-none btn-block" href="all_patients_information.php">BACK</a>
                 </div>
             </div>
         </div>

@@ -9,6 +9,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 ?>
 
+<?php
+    require_once "config.php";
+    $sql = "SELECT * FROM patient_info";
+    $result = mysqli_query($link, $sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,6 +73,16 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         .dropdown-item:hover {
             background-color: azure;
         }
+        .ref:hover{
+            text-decoration: none;
+            color: black;
+        }
+        .ref{
+            color: black;
+        }
+        .new{
+            color: white;
+        }
     </style>
 </head>
 
@@ -80,195 +96,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <div class="card">
                 <div class="container">
                     <div class="row">
+                    <?php while($row = mysqli_fetch_assoc($result)){ ?>
                         <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
+                            <h5 class="card-title"><a class="ref" href="check_patient.php?id=<?php echo $row['id']; ?>"><?php echo $row['patient_ip']?></a></h5>
                             <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
+                                <?php echo $row['f_name']?>
                             </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
+                            <p class="card-text"><?php echo $row['pe_address']?>  <?php echo $row['pr_address']?></p>
+                            <p class="card-text"><?php echo $row['phone']?></p>
+                            <a class="btn btn-danger shadow-none" href="delete.php?id=<?php echo $row['id']; ?>"><span class="fa fa-eraser new"> Delete</span></a>
+                            <a class="btn btn-info shadow-none"><span class="fa fa-edit new"> Edit</span></a>
                         </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
-                        <div class="card-body col-4">
-                            <h5 class="card=title">192.168.0.101</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Md Shahed Talukder
-                            </h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-danger shadow-none"><span class="fa fa-eraser"> Delete</span></button>
-                            <button class="btn btn-info shadow-none"><span class="fa fa-edit"> Edit</span></button>
-                        </div>
+                        <?php }?>
                     </div>
                 </div>
             </div>

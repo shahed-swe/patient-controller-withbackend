@@ -28,12 +28,9 @@
                             <a class="dropdown-item" href="add_medicine.php">Add Medicine</a>
                         </div>
                     </li>
-                    <div class="form-inline my-2 my-lg-0">
-                        <div class="nav-item mr-sm-2">
-                            <a href="logout.php" class="nav-link">Logout</a>
-                        </div>
+                    <div class="nav-item mr-sm-2">
+                        <a href="logout.php" class="nav-link">Logout</a>
                     </div>
-                    
                 </ul>
             </div>
         </nav>

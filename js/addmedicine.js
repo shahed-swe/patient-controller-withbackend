@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
 
     $("#first_medicine_name").attr("disabled", true);
     $("#first_medicine_time").attr("disabled", true);
@@ -7,8 +7,8 @@ $(function() {
     $("#third_medicine_name").css("display", "none");
     $("#third_medicine_time").css("display", "none");
 
-    $("#patient_id").on('input', function() {
-        var input = $("#patient_id").val();
+    $("#patient_ip").on('input', function() {
+        var input = $("#patient_ip").val();
         if (input) {
             $("#first_medicine_name").attr("disabled", false);
             $("#first_medicine_time").attr("disabled", false);
@@ -63,7 +63,6 @@ $(function() {
     });
 
     $("#submit").click(function() {
-        event.preventDefault();
         var data1 = $("#first_medicine_name").val();
         var data2 = $("#first_medicine_time").val();
         if (data1 && data2) {
