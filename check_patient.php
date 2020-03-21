@@ -16,7 +16,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     require_once "config.php";
     $sql = "SELECT * FROM patient_info WHERE id=$id";
     $result = mysqli_query($link, $sql);
-
     $std = mysqli_fetch_assoc($result);
     // var_dump($std);
 ?>
