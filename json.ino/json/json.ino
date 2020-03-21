@@ -1,33 +1,26 @@
 #include <ESP8266WiFi.h>
-#include <LiquidCrystal.h>
 #include <ESP8266HTTPClient.h>
 #include <ArduinoJson.h>
-LiquidCrystal lcd(D2, D3, D5, D6, D7, D8);
 
+const char* ssid = "new_techno";
+const char* password = "srsas12dfin";
 
-const char* ssid = "new_techno";  //wifi ssid
-const char* password = "srsas12dfin";   //wifi password
-
-void setup() {
+void setup() 
+{
   Serial.begin(115200);
-   lcd.begin(16, 2);
-   lcd.clear();
-   lcd.setCursor(0, 0);
-   lcd.print("NEW ZEN TECH");
-  WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
-  if (WiFi.waitForConnectResult() != WL_CONNECTED) {
-    Serial.println("WiFi Failed!");
-    return;
+
+  while (WiFi.status() != WL_CONNECTED) 
+  {
+    delay(1000);
+    Serial.println("Connecting...");
   }
-  Serial.println(WiFi.localIP());
 }
 
-void loop() {
-  lcd.begin(16, 2);
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  if (WiFi.status() == WL_CONNECTED) {
+void loop() 
+{
+  if (WiFi.status() == WL_CONNECTED) 
+  {
     HTTPClient http; //Object of class HTTPClient
     http.begin("http://192.168.0.102/pub-tech/json.php?id=2");
     int httpCode = http.GET();
@@ -48,9 +41,9 @@ void loop() {
       const char* third_medicine_time = root["third_medicine_time"];
 
       Serial.print("Full Name:");
-      lcd.println(f_name);
+      Serial.println(f_name);
       Serial.print("Email");
-      lcd.println(email);
+      Serial.println(email);
       Serial.print("First Medicine Name:");
       Serial.println(first_medicine_name);
       Serial.print("First Medicine Time:");
@@ -67,8 +60,5 @@ void loop() {
     }
     http.end(); //Close connection
   }
-  for (int positionCounter = 0; positionCounter < 29; positionCounter++) {
-    lcd.scrollDisplayLeft();
-    delay(1000);
-  }
+  delay(6000);
 }

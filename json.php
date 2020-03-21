@@ -10,5 +10,5 @@
         $json_array[] = $row;
     }
 
-    echo json_encode($json_array);
+    echo json_encode($json_array[0]);
 ?>
