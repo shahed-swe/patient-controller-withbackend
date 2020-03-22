@@ -14,14 +14,47 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     $id = $_GET['id'];
     require_once "config.php";
-    $sql = "SELECT * FROM patient_info WHERE id=$id";
+    $sql = "SELECT * FROM patient_info WHERE id='$id'";
     $result = mysqli_query($link, $sql);
     $std = mysqli_fetch_assoc($result);
     
-    $f_name = $email = $phone = $bed_no = $pr_address = $pe_address = "";
-    $f_name = $email = $phone = $bed_no = $pr_address = $pe_address = "";
+    $patient_ip = $f_name = $email = $phone = $bed_no = $pr_address = $pe_address = "";
+    $patient_ip_err = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(empty(trim($_POST["patient_ip"]))){
+            $patient_ip_err = "Please enter an ip address";
+        }
+        else{
+            // prepare a select statement
+            $sql = "SELECT id FROM patient_info WHERE patient_ip = ?";
+
+            if($stmt = mysqli_prepare($link, $sql)){
+                mysqli_stmt_bind_param($stmt, "s" , $param_patient_ip);
+
+                // set parameters
+
+                $param_patient_ip = trim($_POST["patient_ip"]);
+
+                // attempt to execute the prepare statement
+                
+                if(mysqli_stmt_execute($stmt)){
+                    mysqli_stmt_store_result($stmt);
+
+                    if(mysqli_stmt_num_rows($stmt) == 1){
+                        $patient_ip = trim($_POST["patient_ip"]);
+
+                    }
+                    else{
+                        $patient_ip_err = "This ip is not used yet";
+                    }
+                }else{
+                    echo "Oops! Something went wrong. Please try again later";
+                }
+                mysqli_stmt_close($stmt);
+            }
+        }
+
         if(empty(trim($_POST["f_name"]))){
             $f_name_err = "Please Enter your Full name.";
         }else{
@@ -57,29 +90,32 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         }else{
             $pe_address = trim($_POST["pe_address"]);
         }
+        if(empty($patient_ip_err)){
+            $query = "UPDATE patient_info SET f_name = ?, email = ?, phone = ?, pr_address = ?, pe_address = ? WHERE patient_ip = ?";
 
-        $query = "UPDATE patient_info set f_name = ?, email = ?, phone = ?, pr_address = ?, pe_address = ? where id = $id";
+            if($stmt = mysqli_prepare($link, $query)){
+                mysqli_stmt_bind_param($stmt,"ssssss",$param_f_name,$param_email,$param_phone,$param_pr_address,$param_pe_address,$param_patient_ip);
 
-        if($stmt = mysqli_prepare($link, $query)){
-            mysqli_stmt_bind_param($stmt,"sssss",$para_f_name,$param_email,$param_phone,$param_pr_address,$param_pe_address);
+                // set parameters
+                $param_f_name = $f_name;
+                $param_email = $email;
+                $param_phone = $phone;
+                $param_pr_address = $pr_address;
+                $param_pe_address = $pe_address;
+                $param_patient_ip = $patient_ip;
 
-            // set parameters
-            $param_f_name = $f_name;
-            $param_email = $email;
-            $param_phone = $phone;
-            $param_pr_address = $pr_address;
-            $param_pe_address = $pe_address;
-
-            if(mysqli_stmt_execute($stmt)){
-                header("location: all_patients_information.php");
+                if(mysqli_stmt_execute($stmt)){
+                    header("location: all_patients_information.php");
+                }
+                else{
+                    echo "Something went wrong. Please try again later!";
+                }
+                mysqli_stmt_close($stmt);
             }
-            else{
-                echo "Something went wrong. Please try again later!";
-            }
-            mysqli_stmt_close($stmt);
+
+            mysqli_close($link);
         }
-
-        mysqli_close($link);
+        
     }
 ?>
 
@@ -167,6 +203,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <img class="card-img-top" src="img/doctor.png" alt="">
                 <form class="form-sec" id="validateForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                     <div class="form-row">
+                        <div class="form-group col-12">
+                        <!-- name: f_name -->
+                            <input type="text" class="form-control" id="patient_ip" name="patient_ip" placeholder="Enter patients ID" value="<?php echo $std['patient_ip']; ?>">
+                        </div>
                         <div class="form-group col-12">
                         <!-- name: f_name -->
                             <input type="text" class="form-control" id="f_name" name="f_name" placeholder="Enter patients Name" value="<?php echo $std['f_name']; ?>">
