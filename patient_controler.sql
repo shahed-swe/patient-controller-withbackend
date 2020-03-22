@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2020 at 02:00 PM
+-- Generation Time: Mar 22, 2020 at 02:36 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -37,7 +37,6 @@ CREATE TABLE `patient_info` (
   `bed_no` varchar(40) DEFAULT NULL,
   `pr_address` varchar(30) DEFAULT NULL,
   `pe_address` varchar(40) DEFAULT NULL,
-  `user_image` varchar(40) DEFAULT NULL,
   `first_medicine_name` varchar(40) DEFAULT NULL,
   `first_medicine_time` varchar(40) DEFAULT NULL,
   `second_medicine_name` varchar(40) DEFAULT NULL,
@@ -50,8 +49,10 @@ CREATE TABLE `patient_info` (
 -- Dumping data for table `patient_info`
 --
 
-INSERT INTO `patient_info` (`id`, `patient_ip`, `f_name`, `email`, `phone`, `bed_no`, `pr_address`, `pe_address`, `user_image`, `first_medicine_name`, `first_medicine_time`, `second_medicine_name`, `second_medicine_time`, `third_medicine_name`, `third_medicine_time`) VALUES
-(1, '192.168.0.100', 'Shahed', 'shahedtalukder51@gmail.com', '1762178238', '01', 'Adalot Para, Tangail', 'Khagan Bazar, Ashulia, Dhaka', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `patient_info` (`id`, `patient_ip`, `f_name`, `email`, `phone`, `bed_no`, `pr_address`, `pe_address`, `first_medicine_name`, `first_medicine_time`, `second_medicine_name`, `second_medicine_time`, `third_medicine_name`, `third_medicine_time`) VALUES
+(1, 'Patient01', 'Md Shahed Talukder', 'shahedtalukder51@gmail.com', '01762178238', '01', 'Adalot Para, Tangail', 'Khagan Bazar, Ashulia, Dhaka', 'Napa Extra', '08:45', 'Flazil', '12:06', 'Matril', '18:56'),
+(2, 'Patient02', 'Md Azad Miah', 'azad357@gmail.com', '01762345624', '02', 'Dotto Para. Dhaka', 'Fulki Jhonjhonia, Kashil, Bot Tola, Tang', 'Napa Extra', '08:45', 'Matril', '12:45', 'Flazil', '17:10'),
+(3, 'Patient03', 'Md Ashik Mia', 'ashik56@gmail.com', '01762345624', '02', 'Dotto Para. Dhaka', 'Fulki Jhonjhonia, Kashil, Bot Tola, Tang', 'Napa Extra', '08:45', 'Matril', '12:45', 'Flazil', '16:56');
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `patient_info`
 --
 ALTER TABLE `patient_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
