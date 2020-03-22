@@ -42,7 +42,7 @@ void loop() {
   lcd.setCursor(0, 0);
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http; //Object of class HTTPClient
-    http.begin("http://192.168.0.102/pub-tech/json.php?id=1");
+    http.begin("http://creativeiot.xyz/json.php?id=2");
     int httpCode = http.GET();
 
     if (httpCode > 0) 
