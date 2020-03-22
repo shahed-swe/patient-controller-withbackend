@@ -14,7 +14,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     //including config file
     require_once "config.php";
-
+    $id = $_GET['id'];
     // define variables and initialize with empty values
     $patient_ip = $first_medicine_name = $first_medicine_time = $second_medicine_name = $second_medicine_time = $third_medicine_name = $third_medicine_time = "";
     $patient_ip_err = "";
@@ -126,7 +126,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         }
         
         .form-section {
-            margin-top: 50px;
+            margin-top: 6px;
             animation: movingTopToBottom 3s;
             -webkit-animation: movingTopToBottom 3s;
             position: relative;
@@ -189,7 +189,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     <div class="form-row">
                         <div class="form-group col-12">
                         <!-- name: patient_ip -->
-                            <input type="text" class="form-control" id="patient_ip" name="patient_ip" placeholder="Enter patients Ip">
+                            <input type="text" class="form-control" id="patient_ip" name="patient_ip" placeholder="Enter patients ID" value="<?php echo "$id"?>">
                             <span class="help-block"><?php echo $patient_ip_err; ?></span>
                         </div>
                     </div>
@@ -230,7 +230,98 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </section>
     <!-- scripts -->
     <!-- <script src="js/setmedicine.js"></script> -->
-    <script src="js/addmedicine.js"></script>
+    <!-- <script src="js/addmedicine.js"></script> -->
+    <script>
+        $(document).ready(function() {
+
+            // $("#first_medicine_name").attr("disabled", true);
+            $("#first_medicine_time").attr("disabled", true);
+            $("#second_medicine_name").css("display", "none");
+            $("#second_medicine_time").css("display", "none");
+            $("#third_medicine_name").css("display", "none");
+            $("#third_medicine_time").css("display", "none");
+
+            $("#first_medicine_name").on('input', function() {
+                var input = $("#first_medicine_name").val();
+                if (input) {
+                    // $("#first_medicine_name").attr("disabled", false);
+                    $("#first_medicine_time").attr("disabled", false);
+                } else {
+                    // $("#first_medicine_name").attr("disabled", true);
+                    $("#first_medicine_time").attr("disabled", true);
+                }
+            });
+
+            $("#first_medicine_time").on('input', function() {
+                var input = $("#first_medicine_time").val();
+                if (input) {
+                    $("#second_medicine_name").css("display", "block");
+                    $("#second_medicine_time").css("display", "block");
+                    $("#second_medicine_time").attr("disabled", true);
+                } else {
+                    $("#second_medicine_name").css("display", "none");
+                    $("#second_medicine_time").css("display", "none");
+                    $("#third_medicine_name").css("display", "none");
+                    $("#third_medicine_time").css("display", "none");
+                }
+            });
+            $("#second_medicine_name").on('input', function() {
+                var input = $("#second_medicine_name").val();
+                if (input) {
+                    $("#second_medicine_time").attr("disabled", false);
+                } else {
+                    $("#second_medicine_time").attr("disabled", true);
+                }
+            });
+
+            $("#second_medicine_time").on('input', function() {
+                var input = $("#second_medicine_time").val();
+                if (input) {
+                    $("#third_medicine_name").css("display", "block");
+                    $("#third_medicine_time").css("display", "block");
+                    $("#third_medicine_time").attr("disabled", true);
+
+                } else {
+                    $("#third_medicine_name").css("display", "none");
+                    $("#third_medicine_time").css("display", "none");
+                }
+            });
+
+            $("#third_medicine_name").on('input', function() {
+                var input = $("#third_medicine_name").val();
+                if (input) {
+                    $("#third_medicine_time").attr("disabled", false);
+                } else {
+                    $("#third_medicine_time").attr("disabled", true);
+                }
+            });
+
+            $("#submit").click(function() {
+                var data1 = $("#first_medicine_name").val();
+                var data2 = $("#first_medicine_time").val();
+                if (data1 && data2) {
+                    var data = {
+                        input0: $('#patient_id').val(),
+                        input1: $("#first_medicine_name").val(),
+                        input2: $("#first_medicine_time").val(),
+                        input3: $("#second_medicine_name").val(),
+                        input4: $("#second_medicine_time").val(),
+                        input5: $("#third_medicine_name").val(),
+                        input6: $("#third_medicine_time").val(),
+                    }
+                } else {
+                    alert("Nothing to send!!")
+                    var data = {}
+                }
+                if (data) {
+                    console.log(data);
+                    localStorage.setItem('getvalue', data);
+                } else {
+                    console.log("Nothing to be prevent here!!!");
+                }
+            });
+        });
+    </script>
     <script src="js/bootstrap.min.js"></script>
 </body>
 

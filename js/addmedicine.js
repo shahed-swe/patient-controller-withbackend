@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $("#first_medicine_name").attr("disabled", true);
+    // $("#first_medicine_name").attr("disabled", true);
     $("#first_medicine_time").attr("disabled", true);
     $("#second_medicine_name").css("display", "none");
     $("#second_medicine_time").css("display", "none");
@@ -10,10 +10,10 @@ $(document).ready(function() {
     $("#patient_ip").on('input', function() {
         var input = $("#patient_ip").val();
         if (input) {
-            $("#first_medicine_name").attr("disabled", false);
+            // $("#first_medicine_name").attr("disabled", false);
             $("#first_medicine_time").attr("disabled", false);
         } else {
-            $("#first_medicine_name").attr("disabled", true);
+            // $("#first_medicine_name").attr("disabled", true);
             $("#first_medicine_time").attr("disabled", true);
         }
     });

@@ -104,7 +104,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     </p>
                 </div>
                 <div class="col-8 col-lg-10 m-auto">
-                    <a class="btn btn-info shadow-none btn-block" href="all_patients_information.php">BACK</a>
+                    <a class="btn btn-info shadow-none" href="all_patients_information.php">BACK</a>
+                    <a class="btn btn-success shadow-none" href="add_medicine.php?id=<?php echo $std['patient_ip']; ?>">Add Medicine</a>
                 </div>
             </div>
         </div>

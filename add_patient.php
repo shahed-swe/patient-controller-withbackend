@@ -204,7 +204,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     <div class="form-row">
                         <div class="form-group col-6">
                         <!-- name: patient_id -->
-                            <input type="text" class="form-control" id="patient_ip" name="patient_ip" placeholder="Enter patients Ip">
+                            <input type="text" class="form-control" id="patient_ip" name="patient_ip" placeholder="Enter patients ID">
                         </div>
                         <div class="form-group col-6">
                         <!-- name: f_name -->

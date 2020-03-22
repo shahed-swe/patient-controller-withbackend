@@ -24,8 +24,6 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="all_patients_information.php">All Patients</a>
                             <a class="dropdown-item" href="add_patient.php">Add New Patient</a>
-                            <!-- <a class="dropdown-item" href="check_patient.php">Check Patient</a> -->
-                            <a class="dropdown-item" href="add_medicine.php">Add Medicine</a>
                         </div>
                     </li>
                     <div class="nav-item mr-sm-2">
