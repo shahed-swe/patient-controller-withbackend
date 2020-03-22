@@ -42,7 +42,7 @@ void loop() {
   lcd.setCursor(0, 0);
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http; //Object of class HTTPClient
-    http.begin("http://192.168.0.102/pub-tech/json.php?id=2");
+    http.begin("http://192.168.0.102/pub-tech/json.php?id=1");
     int httpCode = http.GET();
 
     if (httpCode > 0) 
@@ -59,6 +59,11 @@ void loop() {
       const char* second_medicine_time = root["second_medicine_time"];
       const char* third_medicine_name = root["third_medicine_name"];
       const char* third_medicine_time = root["third_medicine_time"];
+
+      //converting char reference to string
+      String first_string = (String) "  "+first_medicine_name + " " + first_medicine_time;
+      String second_string = (String) "  "+second_medicine_name + " " + second_medicine_time;
+      String third_string = (String) "  "+third_medicine_name + " " + third_medicine_time;
       
       int hour = timeClient.getHours();
       hour = hour + 5;
@@ -75,18 +80,15 @@ void loop() {
 //      making condition to print the name of the medicine
       if(val1 == hour && val2 != hour && val3 != hour){
 //          Serial.println("It's time to take your breakfast buddy");
-            lcd.println(first_medicine_name);
-            lcd.println(first_medicine_time);
+            lcd.print(first_string);
       }
       else if(val1 != hour && val2 == hour && val3 != hour){
 //          Serial.println("It's time to take your lunch buddy");
-            lcd.println(second_medicine_name);
-            lcd.println(second_medicine_time);
+            lcd.print(second_string);
       }
       else if(val1 != hour && val2 != hour && val3 == hour){
 //          Serial.println("It's time to take your dinner buddy");
-            lcd.println(third_medicine_name);
-            lcd.println(third_medicine_time);
+            lcd.print(third_string);
       }
       else{
           lcd.print("We will alert you for your medicine time to time!");
@@ -96,6 +98,6 @@ void loop() {
   }
   for (int positionCounter = 0; positionCounter < 29; positionCounter++) {
     lcd.scrollDisplayLeft();
-    delay(1000);
+    delay(600);
   }
 }
