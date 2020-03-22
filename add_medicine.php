@@ -58,7 +58,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $second_medicine_name = trim($_POST["second_medicine_name"]);
         $second_medicine_time = trim($_POST["second_medicine_time"]);
         $third_medicine_name = trim($_POST["third_medicine_name"]);
-        $third_medicine_time = trim($_POST["second_medicine_time"]);
+        $third_medicine_time = trim($_POST["third_medicine_time"]);
 
         if(empty($patient_ip_err)){
             $sql = "UPDATE patient_info SET first_medicine_name = ?, first_medicine_time = ?, second_medicine_name = ?, second_medicine_time = ?, third_medicine_name = ?, third_medicine_time = ? WHERE patient_ip = ?";
@@ -80,7 +80,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 // attenot ti execute the prepared statement
 
                 if(mysqli_stmt_execute($stmt)){
-                    header("location: check_patient.php");
+                    header("location: all_patients_information.php");
                 }else{
                     echo "Something went wrong! Please try again later.";
                 }

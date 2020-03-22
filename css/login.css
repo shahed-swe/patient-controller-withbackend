@@ -82,3 +82,9 @@
         width: 1366px;
     }
 }
+
+.take-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+}
