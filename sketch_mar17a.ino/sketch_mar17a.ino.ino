@@ -29,7 +29,7 @@ void loop() {
   lcd.setCursor(0, 0);
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http; //Object of class HTTPClient
-    http.begin("http://192.168.0.102/pub-tech/json.php?id=2");
+    http.begin("http://192.168.0.102/pub-tech/json.php?id=1");
     int httpCode = http.GET();
 
     if (httpCode > 0) 
@@ -47,23 +47,16 @@ void loop() {
       const char* third_medicine_name = root["third_medicine_name"];
       const char* third_medicine_time = root["third_medicine_time"];
 
-      Serial.print("Full Name:");
-      lcd.println(f_name);
-      Serial.print("Email");
-      lcd.println(email);
-      Serial.print("First Medicine Name:");
-      Serial.println(first_medicine_name);
-      Serial.print("First Medicine Time:");
-      Serial.println(first_medicine_time);
-      Serial.print("Second Medicine Name:");
-      Serial.println(second_medicine_name);
-      Serial.print("Second Medicine Time:");
-      Serial.println(second_medicine_time);
-      Serial.print("Third Medicine Name:");
-      Serial.println(third_medicine_name);
-      Serial.print("Third Medicine Time:");
-      Serial.println(third_medicine_time);
-
+      // Serial.print("Full Name:");
+      // lcd.println(f_name);
+      // Serial.print("Email");
+      // lcd.println(email);
+      lcd.print(first_medicine_name);
+      lcd.println(first_medicine_time);
+      lcd.print(first_medicine_name);
+      lcd.println(first_medicine_time);
+      lcd.print(first_medicine_name);
+      lcd.println(first_medicine_time);
     }
     http.end(); //Close connection
   }

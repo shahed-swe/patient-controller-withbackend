@@ -80,7 +80,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 // attenot ti execute the prepared statement
 
                 if(mysqli_stmt_execute($stmt)){
-                    header("location: add_medicine.php");
+                    header("location: check_patient.php");
                 }else{
                     echo "Something went wrong! Please try again later.";
                 }

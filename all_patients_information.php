@@ -105,7 +105,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <p class="card-text"><?php echo $row['pe_address']?>  <?php echo $row['pr_address']?></p>
                             <p class="card-text"><?php echo $row['phone']?></p>
                             <a class="btn btn-danger shadow-none" href="delete.php?id=<?php echo $row['id']; ?>"><span class="fa fa-eraser new"> Delete</span></a>
-                            <a class="btn btn-info shadow-none"><span class="fa fa-edit new"> Edit</span></a>
+                            <a class="btn btn-info shadow-none" href="edit_info.php?id=<?php echo $row['id']; ?>"><span class="fa fa-edit new"> Edit</span></a>
                         </div>
                         <?php }?>
                     </div>
